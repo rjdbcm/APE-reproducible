@@ -1,0 +1,1 @@
+echo "[test_duration]. test_duration." | swipl -q 

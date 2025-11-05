@@ -1,0 +1,1 @@
+echo "[test_drace]. test_drace(core)." | swipl > testruns/drace_test_results.txt

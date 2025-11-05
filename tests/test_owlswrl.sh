@@ -1,0 +1,1 @@
+swipl -f none -g main -t halt -s test_owlswrl.pl > testruns/owlswrl_test_results.txt

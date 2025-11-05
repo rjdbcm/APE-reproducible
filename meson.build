@@ -8,11 +8,11 @@ sh = find_program('sh', required: true)
 all_sources = []
 subdir('prolog')
 # install_data(install_mode: 'rwxr-xr-x', install_dir: '/usr/bin', sources: all_sources)
-configure_file(input: 'ape.pl', output: 'ape.pl', configuration: configuration_data())
-configure_file(input: 'pack.pl', output: 'pack.pl', configuration: configuration_data())
-configure_file(input: 'runape.pl', output: 'runape.pl', configuration: configuration_data())
-configure_file(input: 'make_cmdline.cmd', output: 'make_cmdline.cmd', configuration: configuration_data())
-configure_file(input: 'make_exe.cmd', output: 'make_exe.cmd', configuration: configuration_data())
+configure_file(input: 'ape.pl', output: 'ape.pl', copy: true)
+configure_file(input: 'pack.pl', output: 'pack.pl', copy: true)
+configure_file(input: 'runape.pl', output: 'runape.pl', copy: true)
+configure_file(input: 'make_cmdline.cmd', output: 'make_cmdline.cmd', copy: true)
+configure_file(input: 'make_exe.cmd', output: 'make_exe.cmd', copy: true)
 ape_exe = custom_target(
     build_by_default: true,
     command: [sh, 'make_exe.cmd'],
