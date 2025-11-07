@@ -1,1 +1,1 @@
-echo "[test_drace]. test_drace(np)." | swipl > testruns/ndrace_test_results.txt
+echo "[test_drace]. test_drace(np)." | swipl > testruns/dracenp_test_results.txt

@@ -1,1 +1,1 @@
-echo "[test_drs_to_x]. main." | swipl > test_drs_to_tptp_out.txt
+echo "[test_drs_to_x]. main." | swipl > testruns/test_drs_to_tptp_out.txt
