@@ -97,7 +97,7 @@ get_line(Line, Pos, End, Ascii) :-
 
 draw_tree(Tree, Line, Start, Start, End) :-
 	(Tree = [Atom] ; Tree = Atom),
-	atomic(Atom),
+	atom(Atom),
 	!,
 	atom_chars(Atom, AtomChars),
 	final_line(FinalLine),
