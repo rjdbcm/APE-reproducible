@@ -2,7 +2,7 @@ configure_file(input: 'ace_to_drs.pl', output: 'ace_to_drs.pl', install: true, i
 configure_file(input: 'ape_utils.pl', output: 'ape_utils.pl', install: true, install_dir: libpath / 'parser', copy: true)
 configure_file(input: 'fit_to_plp.pl', output: 'fit_to_plp.pl', install: true, install_dir: libpath / 'parser', copy: true)
 plp_files = custom_target(
-    command: ['swipl', '-g', 'working_directory(_, "prolog/parser"), [fit_to_plp], halt.'],
+    command: ['swipl', '-g', 'working_directory(_, "@0@"), [fit_to_plp], halt.'.format(meson.current_build_dir())],
     output: ['grammar_contentwords.plp', 'grammar_functionwords.plp', 'grammar.plp', 'sorts.plp'],
     install: true,
     install_dir: libpath / 'parser',
