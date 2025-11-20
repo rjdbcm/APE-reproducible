@@ -11,14 +11,14 @@ configure_file(input: 'ape.pl', output: 'ape.pl', copy: true)
 configure_file(input: 'pack.pl', output: 'pack.pl', copy: true)
 configure_file(input: 'runape.pl', output: 'runape.pl', copy: true)
 ape_exe = custom_target(
-    command: [swipl, '-O', '-f', 'ape.pl', '-g', 'qsave_program("@OUTPUT@", [goal(ape), toplevel(halt), stand_alone(true)]).', '-t', 'halt'],
+    command: [swipl, '-O', '-f',  '@BUILD_ROOT@' / 'ape.pl', '-g', 'qsave_program("@OUTPUT@", [goal(ape), toplevel(halt), stand_alone(true)]).', '-t', 'halt'],
     depends: plp_files,
     install: true,
     install_dir: get_option('bindir'),
     output: 'ape.exe',
 )
 custom_target(
-    command: [swipl, '-O', '-f', 'runape.pl', '-g', 'qsave_program("@OUTPUT@", [stand_alone(true)]).', '-t', 'halt'],
+    command: [swipl, '-O', '-f',  '@BUILD_ROOT@' / 'runape.pl', '-g', 'qsave_program("@OUTPUT@", [stand_alone(true)]).', '-t', 'halt'],
     depends: plp_files,
     install: true,
     install_dir: get_option('bindir'),

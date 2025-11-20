@@ -21,7 +21,7 @@ custom_target(
     build_by_default: true,
     capture: true,
     command: [perl,
-        'prolog/parser/make_syntax_report.perl',
+        meson.current_build_dir() / 'make_syntax_report.perl',
         '--number', meson.project_version()
     ],
     feed: true,
