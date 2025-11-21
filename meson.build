@@ -5,11 +5,12 @@ xxd = find_program('xxd', required: true)
 swipl = find_program('swipl', required: true)
 sh = find_program('sh', required: true)
 project_folder = '@0@-@1@'.format(meson.project_name(), meson.project_version())
-libpath = get_option('libdir') / project_folder / 'prolog'
+libroot = get_option('libdir') / project_folder
+libpath = libroot / 'prolog'
 subdir('prolog')
-configure_file(input: 'ape.pl', output: 'ape.pl', copy: true)
-configure_file(input: 'pack.pl', output: 'pack.pl', copy: true)
-configure_file(input: 'runape.pl', output: 'runape.pl', copy: true)
+configure_file(input: 'ape.pl', output: 'ape.pl', copy: true, install: true, install_dir: libroot)
+configure_file(input: 'pack.pl', output: 'pack.pl', copy: true, install: true, install_dir: libroot)
+configure_file(input: 'runape.pl', output: 'runape.pl', copy: true, install: true, install_dir: libroot)
 ape_exe = custom_target(
     command: [swipl, '-O', '-f',   meson.current_build_dir() / 'ape.pl', '-g', 'qsave_program("@OUTPUT@", [goal(ape), toplevel(halt), stand_alone(true)]).', '-t', 'halt'],
     depends: plp_files,
